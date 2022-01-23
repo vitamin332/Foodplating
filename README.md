@@ -1,24 +1,41 @@
-# README
+# Foodplating
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+様々な料理の盛り付け例サイト <br>
+会員登録をする事で、盛り付け例や盛り付けに適する食器などを選択し、参考に出来ます。<br>
+アドバイスやコツをお互いにコメントとして出し合い、喜びや悩みを共有してもらうことができ、また検索機能を使って
+作りたい料理の盛り付け例をすぐに参考に出来ます。
 
-Things you may want to cover:
 
-* Ruby version
+### サイトテーマ
+盛り付け例や食器選定に役立つサイト
 
-* System dependencies
+### テーマを選んだ理由
+料理が得意だったり好きな方はもちろん、最近は男性も料理をしたり、手料理を振る舞う機会も増えてきたと思います。<br>
+またひとり暮らしする時にどんな食器が必要か？など<br>
+私が過去料理を振る舞った際に盛り付けや食器選定で困った経験やまた、引っ越した際に買ってはみたが、使わないな・・。<br>
+なんて経験から、同じ経験をした人やこれから料理をする方の参考になると思いこのテーマにしました。
 
-* Configuration
+### ターゲットユーザ
+料理好きな人、盛り付けやこれから一人暮らしする方
 
-* Database creation
+### 主な利用シーン
+盛り付けが上手く行かず悩む時に、例を参考にしたり、写真投稿してお互いにコメントやコツを出し合う事での共有
+をする時などに利用が見込めます。<br>
+またその他にも食器何買えばいいんだろう？などの疑問解消をする時にも利用が出来ると思います。
 
-* Database initialization
+## 設計書
+<...>
 
-* How to run the test suite
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1b9K-PEft2CunWYuaXKqI0ar-Mzt67of1UER7gVw-7Fs/edit#gid=2120041691
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Deployment instructions
-
-* ...
+## 使用素材
+使用検討中
