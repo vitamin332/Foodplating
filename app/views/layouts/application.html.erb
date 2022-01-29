@@ -40,6 +40,15 @@
   </nav>
 </header>
 
+ <h2>
+    <div class="d-flex align-items-center" >料理名検索</h2>
+      <%= form_with url: search_posts_path, method: :get, local: true do |f| %>
+      <%= f.text_field :cooking_title %>
+      <%= f.submit :search %>
+    <% end %>
+    </div>
+
+
     <%= yield %>
 
  <footer>

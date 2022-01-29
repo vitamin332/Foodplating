@@ -24,9 +24,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    if @post.user != current_user
-      redirect_to posts_path, alert: '不正なアクセスです。'
-    end
+    redirect_to posts_path, alert: '不正なアクセスです。' if @post.user != current_user
   end
 
   def destroy
@@ -41,6 +39,15 @@ class PostsController < ApplicationController
       redirect_to post_path(@post)
     else
       render :edit
+    end
+  end
+  
+  def search
+    @posts = Post.all
+    if params[:cooking_title].present?
+      @posts = Post.where('post LIKE ?', "%#{params[:cooking_title]}%")
+    else
+      @posts = Post.none
     end
   end
 
