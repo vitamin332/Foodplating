@@ -1,0 +1,31 @@
+<div class="container my-5">
+  <div class="row">
+<!--pluralize 単数形か複数形か自動判断-->
+<% if @post.errors.any? %>
+  <div class="alert alert-danger">
+    <p class="alert">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    </p>
+  </div>
+<% end %>
+<br>
+<%= form_with model: @post, local:true do |f| %>
+  <h3>新規投稿フォーム</h3><br>
+  <h4>画像</h4>
+  <%= f.attachment_field :image %><br>
+  <br>
+  <h4>料理名</h4>
+  <%= f.text_field :cooking_title, :size => "40" %><br>
+  <br>
+  <h4>説明</h4>
+  <%= f.text_area :caption, :size => "40" %><br>
+  <%= f.submit '投稿' , class: "btn btn-success" %>
+<% end %>
+
+</div>
+</div>

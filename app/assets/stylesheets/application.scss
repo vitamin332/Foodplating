@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+body {
+  font-family: "Noto Serif JP", serif !important;
+}
+
+.profile_image {
+ border-radius: 50%;
+}
+
+.link {
+    text-decoration: none;
+    color: white ; 
+}
+
+.alert {
+  margin-bottom : 0px;
+}

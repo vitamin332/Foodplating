@@ -4,12 +4,48 @@
     <title>Foodplating</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+<body>
+  <% if flash[:notice] %>
+    <div class="alert alert-primary">
+    <p class="notice"><%= notice %></p>
+    </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+      <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+<header>
   <body>
+    <nav class="navbar bg-info">
+    <a class="navbar-brand"><%= link_to root_path do %>
+    <h1 class="title" style="font-family: cursive;" >Foodplating</h1><% end %></a>
+      <div class="ml-auto">
+        <% if user_signed_in? %>
+          <%= link_to "マイページ", user_path(current_user), class: "btn btn-light" %>
+          <%= link_to "新規投稿", new_post_path, class: "btn btn-light" %>
+        　<%= link_to "投稿一覧", posts_path, class: "btn btn-light" %>
+          <%= link_to "投稿者一覧", users_path, class: "btn btn-light" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
+        <% else%>
+          <%= link_to "投稿一覧", posts_path, class: "btn btn-light" %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-light" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "btn btn-light" %>
+        <% end %>
+      </div>
+  </nav>
+</header>
+
     <%= yield %>
+
+ <footer>
+  <div class="container">
+    <div class="small text-center text-muted" style="margin: 50px 0;">Copyright © 2022 Foodplating
+    </div>
+    </footer>
   </body>
 </html>

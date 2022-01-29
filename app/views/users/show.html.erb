@@ -1,0 +1,55 @@
+<div class="container my-5">
+  <h2>マイページ</h2>
+</div>
+
+<div class="container my-5">
+  <div class="row">
+  <%= attachment_image_tag @user, :profile_image, :size => '100x100', fallback: "no_image.jpg", class: "profile_image is-rounded" %><br>
+  <table class="table col-md-6">
+    <tr>
+      <td>ユーザーネーム</td>
+      <td><strong><%= @user.name %></strong></td>
+    </tr>
+        <% if @user.id == current_user.id %>
+        <!--ログインユーザー以外は以下を見えなくする-->
+    <tr class="col-md-4">
+      <td>メールアドレス</td>
+      <td><strong><%= @user.email %></strong></td>
+    </tr>
+  </table>
+        <% end %>
+  </div>
+  <%= link_to "編集", edit_user_path(@user), class: "btn btn-primary" %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="card" style="width: auto">
+      <div class="card card-image-top">
+        <%= @user.posts.each do |post| %>
+        <%= attachment_image_tag post, :image, :size => '200x200' %>
+      </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= link_to post_path(post) do %>
+            <i class="fas fa-book" aria-hidden="true"></i>
+              投稿詳細を見る
+              <% end %></li>
+            <% if @user.id == current_user.id %>
+            <li class="list-group-item">
+              <%= link_to edit_post_path(post) do %>
+                <i class="fas fa-edit"></i>
+                投稿を編集する
+            <% end %></li>
+            <li class="list-group-item">
+          <%= link_to post_path(post), method: :delete, data: {confirm: "削除しますか？"} do %>
+            <i class="fas fa-trash"></i>
+            レシピの削除
+            <% end %></li>
+          <% end %>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

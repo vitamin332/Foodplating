@@ -1,0 +1,10 @@
+<%= @posts.each do |post| %>
+<%= attachment_image_tag post, :image,:size => '100×100' %>
+<%= attachment_image_tag post.user, :profile_image, :size => '100x100', fallback: "no_image.jpg" %>
+
+<%= post.user.name %>
+
+<%= post.cooking_title %>
+<%= post.caption %>
+<%= post.updated_at.strftime("%Y-%m-%d %H:%M") %>
+<% end %>

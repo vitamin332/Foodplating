@@ -1,0 +1,37 @@
+<% if @user.errors.any? %>
+  <div class="danger">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="container">
+  <h2>ユーザー編集</h2>
+    <%= form_with model:@user, local:true do |f| %>
+    <div class="row">
+    <div class="col-xs-4">
+      <%= f.label :name, "ユーザー名" %><br>
+      <%= f.text_field :name %>
+    </div><br>
+    </div>
+
+    <div class="row">
+    <div class="col-xs-4">
+      <%= f.label :email, "メールアドレス" %><br>
+      <%= f.email_field :email %>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-xs-4">
+      <%= f.label :profile_image, "プロフィール画像" %><br>
+      <%= f.attachment_field :profile_image %><br>
+      <%= f.submit "更新", class: "btn btn-success " %>
+      <% end %>
+    </div>
+    </div>
+</div>
