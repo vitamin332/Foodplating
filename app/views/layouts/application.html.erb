@@ -32,21 +32,22 @@
           <%= link_to "投稿者一覧", users_path, class: "btn btn-light" %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
         <% else%>
-          <%= link_to "投稿一覧", posts_path, class: "btn btn-light" %>
           <%= link_to "ログイン", new_user_session_path, class: "btn btn-light" %>
           <%= link_to "新規登録", new_user_registration_path, class: "btn btn-light" %>
         <% end %>
       </div>
   </nav>
 </header>
-
- <h2>
-    <div class="d-flex align-items-center" >料理名検索</h2>
+  <% if user_signed_in? %>
+    <div class="mx-auto mt-5" style="width: 200px;" >
       <%= form_with url: search_posts_path, method: :get, local: true do |f| %>
-      <%= f.text_field :cooking_title %>
-      <%= f.submit :search %>
+      <div>
+        <%= f.text_field :cooking_title,autofocus: true, autocomplete: "email", placeholder: "検索はこちらから" %>
+        <%= f.submit :検索 %>
+      </div>
     <% end %>
     </div>
+  <% end %>
 
 
     <%= yield %>

@@ -1,16 +1,16 @@
 <div class="container my-5">
-  <h2>マイページ</h2>
+  <h2>投稿者ページ</h2>
 </div>
 
 <div class="container my-5">
   <div class="row">
+    <% if @user.id == current_user.id %>
     <%= attachment_image_tag @user, :profile_image, :size => '100x100', fallback: "no_image.jpg", class: "profile_image is-rounded" %><br>
       <table class="table col-md-6">
         <tr>
           <td>ユーザーネーム</td>
           <td><strong><%= @user.name %></strong></td>
         </tr>
-          <% if @user.id == current_user.id %>
           <!--ログインユーザー以外は以下を見えなくする-->
         <tr class="col-md-4">
           <td>メールアドレス</td>
@@ -19,11 +19,14 @@
       </table>
           <% end %>
   </div>
-  <%= link_to "編集", edit_user_path(@user), class: "btn btn-primary" %>
+
+  <% if @user.id == current_user.id %>
+    <%= link_to "編集", edit_user_path(@user), class: "btn btn-primary" %>
+  <% end %>
 </div>
 
   <div class="card ml-6">
-        <%= @user.posts.each do |post| %>
+        <% @user.posts.each do |post| %>
         <div class="list-group">
           <%= attachment_image_tag post, :image, :size => '200x200' %>
             <div class="list-group-item">

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
   def new
     @post = Post.new
   end
@@ -41,11 +41,12 @@ class PostsController < ApplicationController
       render :edit
     end
   end
-  
+
   def search
+    @user = current_user
     @posts = Post.all
     if params[:cooking_title].present?
-      @posts = Post.where('post LIKE ?', "%#{params[:cooking_title]}%")
+      @posts = Post.where('cooking_title LIKE ?', "%#{params[:cooking_title]}%")
     else
       @posts = Post.none
     end
