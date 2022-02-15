@@ -6,6 +6,7 @@
         <tr>
           <th>料理名<th>
           <th><%= post.cooking_title %></th>
+
           <th>ユーザー名</th>
           <th><%= link_to @user.name, user_path(current_user) %></th>
         <% end %>

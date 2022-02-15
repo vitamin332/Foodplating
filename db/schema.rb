@@ -18,15 +18,6 @@ ActiveRecord::Schema.define(version: 20_220_129_054_407) do
     t.datetime 'updated_at', null: false
   end
 
-  create_table 'post_images', force: :cascade do |t|
-    t.string 'title'
-    t.string 'image_id'
-    t.text 'caption'
-    t.integer 'user_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-  end
-
   create_table 'posts', force: :cascade do |t|
     t.string 'cooking_title'
     t.string 'image_id'
