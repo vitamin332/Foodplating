@@ -28,9 +28,15 @@ body {
 
 .link {
     text-decoration: none;
-    color: white ; 
+    color: white ;
 }
 
 .alert {
   margin-bottom : 0px;
+}
+
+.post-card-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
 }
