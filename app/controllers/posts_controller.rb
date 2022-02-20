@@ -45,11 +45,11 @@ class PostsController < ApplicationController
   def search
     @user = current_user
     @posts = Post.all
-    if params[:cooking_title].present?
-      @posts = Post.where('cooking_title LIKE ?', "%#{params[:cooking_title]}%")
-    else
-      @posts = Post.none
-    end
+    @posts = if params[:cooking_title].present?
+               Post.where('cooking_title LIKE ?', "%#{params[:cooking_title]}%")
+             else
+               Post.none
+             end
   end
 
   private

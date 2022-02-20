@@ -1,12 +1,13 @@
 <div class="container">
   <div class="row">
-    <table class="table">
+    <table class="card">
       <h2>検索結果</h2>
         <% @posts.each do |post| %>
-        <tr>
-          <th>料理名<th>
+        <div class="card-body">
+        <h5>
+          料理名
           <th><%= post.cooking_title %></th>
-
+<%= attachment_image_tag post, :image, class: 'card-img-top img-fluid post-card-img' %>
           <th>ユーザー名</th>
           <th><%= link_to @user.name, user_path(current_user) %></th>
         <% end %>
