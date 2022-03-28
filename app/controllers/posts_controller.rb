@@ -46,7 +46,7 @@ class PostsController < ApplicationController
     @user = current_user
     @posts = Post.all
     @posts = if params[:cooking_title].present?
-               Post.where('cooking_title LIKE ?', "%#{params[:cooking_title]}%")
+      Post.where('cooking_title LIKE ?', "%#{params[:cooking_title]}%")
              else
                Post.none
              end
